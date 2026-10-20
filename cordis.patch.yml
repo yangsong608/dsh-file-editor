@@ -1,0 +1,3 @@
+- insert:
+    - id: file-editor
+      name: dsh-file-editor

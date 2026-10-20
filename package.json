@@ -1,0 +1,37 @@
+{
+  "name": "dsh-file-editor",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    }
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "scripts": {
+    "bundle": "pnpm run bundle:host && pnpm run bundle:client",
+    "bundle:host": "tsdown -c src/host/tsdown.config.ts",
+    "bundle:client": "tsdown -c src/client/tsdown.config.ts",
+    "verify": "node scripts/verify-client-bundle.mjs"
+  },
+  "devDependencies": {
+    "@codemirror/lang-javascript": "^6.2.5",
+    "@codemirror/lang-json": "^6.0.2",
+    "@types/node": "^26.6.3",
+    "@types/react": "~18.3.31",
+    "codemirror": "^6.0.2",
+    "tsdown": "^0.22.14",
+    "typescript": "^6.0.3"
+  }
+}
